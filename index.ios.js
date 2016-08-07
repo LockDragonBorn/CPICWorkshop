@@ -1,53 +1,41 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+* Sample React Native App
+* https://github.com/facebook/react-native
+* @flow
+*/
 
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  ScrollView,
+  Dimensions,
 } from 'react-native';
 
-class CPICWorkshop extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          看到这个页面，说明你的环境已准备完毕
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import Banner from './src/components/Banner.js'
+import DecoratedInput from './src/components/DecoratedInput.js'
+
+let {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    padding: 40
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  backgroundImage: { width, height }
 });
+function MainTab() {
+  return(
+    <Image style={styles.backgroundImage} source={require('./resources/loginBg.png') }>
+      <ScrollView style={styles.container}>
+        <Banner title={"用户登录"} />
+        <DecoratedInput style={{marginBottom:20}} placeholder={"输入一个啥来着"} />
+        <DecoratedInput style={{marginBottom:20}} placeholder={"输入一个啥来着"} />
+      </ScrollView>
+    </Image>
+  )
+}
 
-AppRegistry.registerComponent('CPICWorkshop', () => CPICWorkshop);
+AppRegistry.registerComponent('CPICWorkshop', () => MainTab)
