@@ -19,7 +19,6 @@ import Banner from './src/components/Banner.js'
 import DecoratedInput from './src/components/DecoratedInput.js'
 
 let {width, height} = Dimensions.get('window');
-
 const styles = StyleSheet.create({
   container: {
     padding: 40
