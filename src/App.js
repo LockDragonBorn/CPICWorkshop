@@ -11,19 +11,22 @@ import {
   View,
   Image,
   ScrollView,
-  Dimensions,
   StatusBar,
 } from 'react-native';
 
-import Banner from './components/Banner.js'
-import DecoratedInput from './components/DecoratedInput.js'
+import Banner from './components/Banner'
+import DecoratedInput from './components/DecoratedInput'
+import MainButton from './components/MainButton'
 
-let {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     padding: 40
   },
-  backgroundImage: { width, height }
+  backgroundImage: { 
+    flex: 1,
+    width: null, 
+    height: null
+  }
 });
 function App() {
   return(
@@ -31,8 +34,9 @@ function App() {
       <StatusBar barStyle='light-content' />
       <ScrollView style={styles.container}>
         <Banner title={"用户登录"} />
-        <DecoratedInput style={{marginBottom:20}} placeholder={"输入一个啥来着"} />
-        <DecoratedInput style={{marginBottom:20}} placeholder={"输入一个啥来着"} />
+        <DecoratedInput style={{marginBottom:20}} placeholder={"输入一个手机号"} />
+        <DecoratedInput style={{marginBottom:20}} placeholder={"输入一个密码"} secureTextEntry={true}/>
+        <MainButton style={{height:40, margin:40}} title="登录" />
       </ScrollView>
     </Image>
   )

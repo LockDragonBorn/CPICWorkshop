@@ -1,3 +1,7 @@
+/*
+* @flow
+*/
+
 import React from 'react';
 import {
   StyleSheet,
@@ -27,11 +31,11 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function DecoratedInput({placeholder, style}) {
+export default function DecoratedInput({style, ...props}) {
   return(
     <View style={[styles.container, style]}>
       <Image style={styles.icon} source={require('../../resources/login_mobile_icon.png')} />
-      <TextInput style={styles.input} placeholder={placeholder} placeholderTextColor={'white'}></TextInput>
+      <TextInput style={styles.input} {...props} placeholderTextColor={'white'}></TextInput>
     </View>
   )
 }
